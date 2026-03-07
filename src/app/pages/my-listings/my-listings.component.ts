@@ -128,7 +128,7 @@ const CROP_PLACEHOLDERS: Record<string, string> = {
               <input class="form-control" [(ngModel)]="form.cropName" name="cropName" required placeholder="e.g. Paddy, Tomato">
             </div>
             <div class="form-group">
-              <label class="form-label">Category</label>
+              <label class="form-label">Category *</label>
               <select class="form-control" [(ngModel)]="form.category" name="category">
                 <option value="">Select Category</option>
                 <option *ngFor="let c of categories">{{ c }}</option>
@@ -164,7 +164,7 @@ const CROP_PLACEHOLDERS: Record<string, string> = {
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label">Location</label>
+              <label class="form-label">Location *</label>
               <input class="form-control" [(ngModel)]="form.location" name="location" placeholder="City, State">
             </div>
           </div>
@@ -437,6 +437,13 @@ export class MyListingsComponent implements OnInit {
   }
 
   save() {
+    // Mandatory field validation
+    if (!this.form.cropName?.trim())      { this.error = 'Crop Name is required.'; return; }
+    if (!this.form.category)              { this.error = 'Category is required.'; return; }
+    if (!this.form.quantity || this.form.quantity <= 0) { this.error = 'Quantity must be greater than 0.'; return; }
+    if (!this.form.unit)                  { this.error = 'Unit is required.'; return; }
+    if (!this.form.pricePerUnit || this.form.pricePerUnit <= 0) { this.error = 'Price per unit must be greater than 0.'; return; }
+    if (!this.form.location?.trim())      { this.error = 'Location is required.'; return; }
     if (this.form.harvestDate && this.form.harvestDate > this.todayDate) {
       this.error = 'Harvest date cannot be a future date.';
       return;
@@ -462,5 +469,4 @@ export class MyListingsComponent implements OnInit {
     this.cropService.delete(id).subscribe({
       next: () => { this.success = 'Deleted!'; this.load(); setTimeout(() => this.success = '', 3000); }
     });
-  }
-}
+  }}

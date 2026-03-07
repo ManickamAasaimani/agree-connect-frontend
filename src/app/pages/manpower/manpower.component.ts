@@ -212,12 +212,12 @@ import { environment } from '../../../environments/environment';
               <input class="form-control" type="number" [(ngModel)]="form.dailyRate" name="rate" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Location</label>
+              <label class="form-label">Location *</label>
               <input class="form-control" [(ngModel)]="form.location" name="location" placeholder="City, District">
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Skills <span class="form-hint">(comma separated)</span></label>
+            <label class="form-label">Skills * <span class="form-hint">(comma separated)</span></label>
             <input class="form-control" [(ngModel)]="form.skills" name="skills"
               placeholder="e.g. Plowing, Harvesting, Irrigation">
           </div>
@@ -747,6 +747,12 @@ export class ManpowerComponent implements OnInit {
   }
 
   saveProfile() {
+    if (!this.form.title?.trim())      { this.error = 'Job Title is required.'; return; }
+    if (!this.form.dailyRate || this.form.dailyRate <= 0) { this.error = 'Daily Rate must be greater than 0.'; return; }
+    if (!this.form.location?.trim())   { this.error = 'Location is required.'; return; }
+    if (!this.form.skills?.trim())     { this.error = 'Skills are required.'; return; }
+    if (!this.form.experience?.trim()) { this.error = 'Experience is required.'; return; }
+    this.error = '';
     this.saving = true;
     this.manpowerService.create(this.form).subscribe({
       next: () => {
@@ -832,5 +838,4 @@ export class ManpowerComponent implements OnInit {
 
   private autoHide(type: 'success' | 'error') {
     setTimeout(() => { this[type] = ''; }, 4000);
-  }
-}
+  }}

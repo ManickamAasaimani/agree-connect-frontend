@@ -20,7 +20,7 @@ import { AuthService } from './services/auth.service';
         <footer class="app-footer" *ngIf="authService.isLoggedIn">
           <span>© AgriConnect Hub 2026 · All rights reserved</span>
           <span class="footer-sep">|</span>
-          <span>Support &amp; Developed by <strong>Rajadurga</strong></span>
+          <span>Support &amp; Developed by <strong>Manickam</strong></span>
         </footer>
       </div>
     </div>

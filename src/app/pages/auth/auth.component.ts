@@ -68,7 +68,7 @@ import { environment } from '../../../environments/environment';
           <div class="hero-quote">
             <i class="fas fa-quote-left quote-icon"></i>
             <p class="font-serif">"AgriConnect helped me sell my entire paddy harvest directly to buyers — no middlemen, better prices."</p>
-            <div class="quote-author">— Rajadurga, Paddy Farmer · Thanjavur</div>
+            <div class="quote-author">— Manickam , Paddy Farmer · Thanjavur</div>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@ import { environment } from '../../../environments/environment';
                 <div class="input-wrap">
                   <i class="fas fa-user input-icon"></i>
                   <input [(ngModel)]="regData.name" name="name" type="text"
-                    class="form-control form-control-icon" placeholder="Rajadurga" required>
+                    class="form-control form-control-icon" placeholder="Manickam" required>
                 </div>
               </div>
               <div class="form-group">
@@ -187,7 +187,7 @@ import { environment } from '../../../environments/environment';
               <div class="input-wrap">
                 <i class="fas fa-envelope input-icon"></i>
                 <input [(ngModel)]="regData.email" name="email" type="email"
-                  class="form-control form-control-icon" placeholder="name@gmail.com"
+                  class="form-control form-control-icon" placeholder="manickam@gmail.com"
                   (blur)="emailTouched=true" required>
               </div>
               <div class="field-err" *ngIf="emailTouched && regData.email && !isValidEmail(regData.email)">
@@ -343,7 +343,7 @@ import { environment } from '../../../environments/environment';
           <!-- Copyright footer -->
           <div class="auth-copyright">
             © AgriConnect Hub 2026 · All rights reserved<br>
-            <span>Support &amp; Developed by <strong>Rajadurga</strong></span>
+            <span>Support &amp; Developed by <strong>Manickam</strong></span>
           </div>
 
         </div>
