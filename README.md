@@ -1,5 +1,7 @@
 # Agri Connect Hub — Frontend (Angular 17)
 
+<video controls src="agri_Project-1.mp4" title="Title"></video>
+
 ## Requirements
 - Node.js 18+
 - Angular CLI: `npm install -g @angular/cli`
